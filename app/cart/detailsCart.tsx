@@ -1,24 +1,10 @@
 'use client';
 import Image from 'next/image';
-
+import {IDetailsCart} from '../../interfaces/interface'
 // Use the defined types
-type Item = {
-  id: string;
-  namefood: string;
-  description: string;
-  img?: string;
-  price: number;
-  quantity: number;
-  totalprice: number;
-};
 
-type Details = {
-  name: string;
-  quandoitac?: boolean;
-  items: Item[];
-};
 
-export default function DetailsCart({ Details }: { Details: Details[] }) {
+export default function DetailsCart({ Details }: { Details: IDetailsCart[] }) {
     return (
         <>
             {Details.map((items, index) => (

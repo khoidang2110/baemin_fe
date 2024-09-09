@@ -7,15 +7,15 @@ import React from "react";
 import DetailsCart from "./detailsCart";
 import { Button } from "antd";
 
-import {Details} from '../../interfaces/interface'
+import {IDetailsCart} from '../../interfaces/interface'
 
 
 
-  const detail: Details[] = [
+  const detail: IDetailsCart[] = [
     {
         name: 'Chicken Gang',
         quandoitac: true,
-        items: [
+        items:[
             {
                 namefood: 'Gà rán',
                 img: '/images/Ga.png',

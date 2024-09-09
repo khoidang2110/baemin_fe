@@ -11,11 +11,21 @@ export interface Item {
 }
   
 // cart - page
-  export interface Details  {
-    name: string;
-    quandoitac?: boolean;
-    items: Item[];
-  };
+export interface IItemCart  {
+  id?: string;
+  namefood: string;
+  description: string;
+  img?: string;
+  price: number;
+  quantity: number;
+  totalprice: number;
+};
+
+export interface IDetailsCart {
+  name: string;
+  quandoitac?: boolean;
+  items: IItemCart[];
+};
 
   // search - result
   
