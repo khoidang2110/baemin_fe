@@ -4,6 +4,20 @@ import ScrollFood from "@/components/scrollFood";
 import Image from "next/image";
 import React from "react";
 
+
+type Item = {
+    id: string;
+    name: string;
+    address: string;
+    img: string;
+    kind: string;
+};
+
+type ScrollFoodProps = {
+    title: string;
+    items: Item[];
+};
+
 export default function Home() {
     const items = [
         { name: "Gà Rán", imageSrc: "/images/Ga.png", description: "Thức ăn nhanh" },
@@ -35,48 +49,48 @@ export default function Home() {
             url: '/images/map4.png',
         }
     ]
-    const TodayFood = {
+    const TodayFood: ScrollFoodProps = {
         title: 'Hôm Nay ăn gì',
         items: [
             {
                 id: '1',
                 name: ' Gà Ủ Muối Hoa Tiêu - Food',
-                adrress: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
+                address: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
                 img: '/food/ga1.jpg',
                 kind: 'Quan An'
             },
             {
                 id: '1',
                 name: ' Gà Ủ Muối Hoa Tiêu - Food',
-                adrress: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
+                address: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
                 img: '/food/ga1.jpg',
                 kind: 'Quan An'
             },
             {
                 id: '1',
                 name: ' Gà Ủ Muối Hoa Tiêu - Food',
-                adrress: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
+                address: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
                 img: '/food/ga1.jpg',
                 kind: 'Quan An'
             },
             {
                 id: '1',
                 name: ' Gà Ủ Muối Hoa Tiêu - Food',
-                adrress: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
+                address: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
                 img: '/food/ga1.jpg',
                 kind: 'Quan An'
             },
             {
                 id: '1',
                 name: ' Gà Ủ Muối Hoa Tiêu - Food',
-                adrress: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
+                address: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
                 img: '/food/ga1.jpg',
                 kind: 'Quan An'
             },
             {
                 id: '1',
                 name: ' Gà Ủ Muối Hoa Tiêu - Food',
-                adrress: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
+                address: '4A Đường Số 71, P. Tân Quy, Quận 7, TP. HCM',
                 img: '/food/ga1.jpg',
                 kind: 'Quan An'
             },
