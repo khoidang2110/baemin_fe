@@ -44,15 +44,15 @@ export interface IStatusItem {
   name: string;
   st: boolean;
 }
-
-// export interface IDetailItem {
-//   name: string;
-//   description: string;
-//   price: number;
-//   quantity: number;
-//   totalprice: number;
-//   img: string;
-// }
+// statusOrder - page
+export interface IDetailItem {
+  name: string;
+  description: string;
+  price: number;
+  quantity: number;
+  totalprice: number;
+  img: string;
+}
 
 // componnents - scrollBar
 export interface IItemScrollBar{

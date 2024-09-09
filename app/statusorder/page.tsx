@@ -4,9 +4,9 @@ import Image from 'next/image';
 import React from 'react';
 import Status from './status';
 import DetailsCheckout from '../checkout/detailsCheckout';
-import {StatusItem,DetailItem} from '../../interfaces/interface'
+import {IStatusItem,IDetailItem} from '../../interfaces/interface'
 const Page: React.FC = () => {
-    const status: StatusItem[] = [
+    const status: IStatusItem[] = [
         {
             id: '1',
             number: 1,
@@ -45,7 +45,7 @@ const Page: React.FC = () => {
             st: false
         },
     ]
-    const detail: DetailItem[]  = [
+    const detail: IDetailItem[]  = [
         {
             name:'Ga ran',
             description:'Chiên bột',
