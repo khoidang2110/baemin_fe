@@ -2,10 +2,10 @@
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Input } from "antd";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+//import { useRouter } from "next/navigation";
 
 const Page: React.FC = () => {
-    const router = useRouter();
+    //const router = useRouter();
     // const handleNavigate = () => {
        
     //       router.push('/login');

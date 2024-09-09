@@ -1,15 +1,19 @@
 'use client'
 import { useEffect, useState } from "react";
-import { Item_stt } from '../../interfaces/interface';
-export default function Status({ items }: { items:  Item_stt[]  }) {
+import { StatusItem} from '../../interfaces/interface';
+
+interface StatusProps {
+    items: StatusItem[];
+  }
+export default function Status({ items }: StatusProps) {
     const [current, setCurrent] = useState(0);
-    const [status, setStatus] = useState<Item_stt[]>(items);
+    const [status, setStatus] = useState<StatusItem[]>(items);
 
     useEffect(() => {
         setStatus(items);
     }, [items]);  // Add 'items' as a dependency here
 
-    const handleClick = (id: any) => {
+    const handleClick = (id: string) => {
         const newStatus = status.map(item => {
             if (item.id === id && (item.number === current + 1 || item.number === current)) {
                 item.st = !item.st;
@@ -23,7 +27,7 @@ export default function Status({ items }: { items:  Item_stt[]  }) {
     return (
         <>
             <div className="mt-2 flex flex-col gap-3 relative">
-                {status.map((item: any, index: any) => (
+                {status.map((item, index) => (
                     <div key={item.id}>
                         <div onClick={() => handleClick(item.id)} className="flex flex-row gap-3 items-center cursor-pointer">
                             <div className={`${item.st ? "border-beamin" : ""} w-10 h-10 rounded-full border border-solid flex justify-center items-center`}>

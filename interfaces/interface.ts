@@ -28,11 +28,20 @@ export interface Item_result {
 }
 
 // statusOrder - status
-export interface Item_stt {
+export interface StatusItem {
   id: string;
   number: number;
   name: string;
   st: boolean;
+}
+
+export interface DetailItem {
+  name: string;
+  description: string;
+  price: number;
+  quantity: number;
+  totalprice: number;
+  img: string;
 }
 
 // componnents - scrollBar
