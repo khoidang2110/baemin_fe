@@ -1,7 +1,24 @@
 'use client';
-import Image from 'next/image'; // Import Image from next/image
+import Image from 'next/image';
 
-export default function DetailsCart({ Details }: { Details: any[] }) {
+// Use the defined types
+type Item = {
+  id: string;
+  namefood: string;
+  description: string;
+  img?: string;
+  price: number;
+  quantity: number;
+  totalprice: number;
+};
+
+type Details = {
+  name: string;
+  quandoitac?: boolean;
+  items: Item[];
+};
+
+export default function DetailsCart({ Details }: { Details: Details[] }) {
     return (
         <>
             {Details.map((items, index) => (
@@ -16,13 +33,13 @@ export default function DetailsCart({ Details }: { Details: any[] }) {
                         )}
                     </div>
                     <div className="w-full border-t border-b border-solid border-gray-600 py-3">
-                        {items.items.map((item: any, index: any) => (
+                        {items.items.map((item, index) => (
                             <div key={item.id || index} className={index === items.items.length - 1 ? "w-full grid grid-cols-12" : "w-full grid grid-cols-12 border-b border-solid border-x-gray-300"}>
                                 <div className="pl-8 col-span-4 flex items-center flex-row gap-3">
                                     <input id="default-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded dark:ring-offset-gray-800" />
-                                    {item.img && ( // Conditionally render Image component
+                                    {item.img && (
                                         <div className="relative h-36 w-36">
-                                            <Image layout="fill" objectFit="cover" src={item.img} alt={item.namefood || ''} />
+                                            <Image layout="fill" objectFit="cover" src={item.img} alt={item.namefood} />
                                         </div>
                                     )}
                                     <div className="flex flex-col gap-3">
