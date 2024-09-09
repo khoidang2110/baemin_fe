@@ -5,8 +5,8 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
-import { Item_scroll_bar } from '../interfaces/interface';
-export default function ScrollBar({ items }: { items: Item_scroll_bar[] }) {
+import { IItemScrollBar } from '../interfaces/interface';
+export default function ScrollBar({ items }: { items: IItemScrollBar[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const handleNext = () => {

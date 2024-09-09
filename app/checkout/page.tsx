@@ -4,9 +4,9 @@ import { AccountBookOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 //import Image from "next/image";
 import DetailsCheckout from "./detailsCheckout";
 import { useRouter } from "next/navigation";
-import { Item } from "../../interfaces/interface"; 
-export default function Home() {
-    const detail: Item[]  = [
+import { IItem } from "../../interfaces/interface"; 
+export default function CheckOut() {
+    const detail: IItem[]  = [
         {
             name:'Ga ran',
             description:'Chiên bột',

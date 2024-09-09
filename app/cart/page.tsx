@@ -58,7 +58,7 @@ import {IDetailsCart} from '../../interfaces/interface'
     }
 ];
 
-export default function Home() {
+export default function Cart() {
     return (
         <>
             <div className="flex flex-row w-full h-20 bg-white ">

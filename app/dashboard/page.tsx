@@ -18,7 +18,7 @@ type ScrollFoodProps = {
     items: Item[];
 };
 
-export default function Home() {
+export default function DashBoard() {
     const items = [
         { name: "Gà Rán", imageSrc: "/images/Ga.png", description: "Thức ăn nhanh" },
         { name: "Burger", imageSrc: "/images/burger.jpg", description: "Thức ăn nhanh" },

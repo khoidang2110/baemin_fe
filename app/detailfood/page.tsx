@@ -7,7 +7,7 @@ import { Input } from "antd";
 import Image from "next/image";
 import React, { useState } from "react";
 
-export default function Home() {
+export default function DetailFood() {
 
     const [isActive, setIsActive] = useState(false);
 

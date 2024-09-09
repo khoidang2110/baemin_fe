@@ -1,13 +1,13 @@
 'use client'
 import { useEffect, useState } from "react";
-import { StatusItem} from '../../interfaces/interface';
+import { IStatusItem} from '../../interfaces/interface';
 
 interface StatusProps {
-    items: StatusItem[];
+    items: IStatusItem[];
   }
 export default function Status({ items }: StatusProps) {
     const [current, setCurrent] = useState(0);
-    const [status, setStatus] = useState<StatusItem[]>(items);
+    const [status, setStatus] = useState<IStatusItem[]>(items);
 
     useEffect(() => {
         setStatus(items);

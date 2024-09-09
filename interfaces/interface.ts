@@ -1,7 +1,7 @@
 
 // checkout - detail checkout
 // checkout - page
-export interface Item {
+export interface IItem {
   name: string;
   img: string;
   description: string;
@@ -29,7 +29,7 @@ export interface IDetailsCart {
 
   // search - result
   
-export interface Item_result {
+export interface IItemResult {
   id: string;
   name: string;
   img: string;
@@ -38,23 +38,23 @@ export interface Item_result {
 }
 
 // statusOrder - status
-export interface StatusItem {
+export interface IStatusItem {
   id: string;
   number: number;
   name: string;
   st: boolean;
 }
 
-export interface DetailItem {
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  totalprice: number;
-  img: string;
-}
+// export interface IDetailItem {
+//   name: string;
+//   description: string;
+//   price: number;
+//   quantity: number;
+//   totalprice: number;
+//   img: string;
+// }
 
 // componnents - scrollBar
-export interface Item_scroll_bar{
+export interface IItemScrollBar{
   url: string;
 }

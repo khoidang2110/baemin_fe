@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Item_result } from '../../interfaces/interface';
-export default function ResultFood({ items }: { items:  Item_result[] }) {
+import { IItemResult } from '../../interfaces/interface';
+export default function ResultFood({ items }: { items:  IItemResult[] }) {
     const router = useRouter();
     const handleNavigate = () => {
        
@@ -12,7 +12,7 @@ export default function ResultFood({ items }: { items:  Item_result[] }) {
     return (
         <>
             <div className='mt-3 flex flex-row flex-wrap gap-3 '>
-                {items.map((item:Item_result)=>(
+                {items.map((item:IItemResult)=>(
                 <div onClick={handleNavigate} key={item.id} className='group w-[19%] h-56 bg-white flex flex-col cursor-pointer'>
                     <div className='group-hover:brightness-105 w-full h-[60%] relative'>
                         <Image layout="fill" objectFit="cover" src={item.img} alt={""}></Image>

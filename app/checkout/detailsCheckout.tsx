@@ -1,9 +1,9 @@
 
 import Image from "next/image";
-import { Item } from "../../interfaces/interface"; // Ensure this path is correct
+import { IItem } from "../../interfaces/interface"; // Ensure this path is correct
 
 interface DetailsCheckoutProps {
-  items: Item[];
+  items: IItem[];
 }
 
 export default function DetailsCheckout({ items }: DetailsCheckoutProps) {
