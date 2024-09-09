@@ -1,8 +1,8 @@
-import HeaderNav from "@/components/headerNav";
-import ScrollBar from "@/components/scrollBar";
-import ScrollFood from "@/components/scrollFood";
+// import HeaderNav from "@/components/headerNav";
+// import ScrollBar from "@/components/scrollBar";
+// import ScrollFood from "@/components/scrollFood";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import Image from "next/image";
+//import Image from "next/image";
 import React from "react";
 import DetailsCart from "./detailsCart";
 import { Button } from "antd";

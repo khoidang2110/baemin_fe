@@ -2,7 +2,7 @@
 
 import { DownOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
-import { useRouter } from "next/navigation";
+//import { useRouter } from "next/navigation";
 
 const AreaSelector = () => {
   const [isOpen, setIsOpen] = useState(false);

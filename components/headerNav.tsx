@@ -3,13 +3,14 @@
 import { Button, Select } from "antd";
 import { SearchProps } from "antd/es/input";
 import Search from "antd/es/input/Search";
-import { useState } from "react";
-import { HomeOutlined, SearchOutlined, SolutionOutlined,ShoppingCartOutlined } from '@ant-design/icons';
+//import { useState } from "react";
+import { HomeOutlined, SolutionOutlined,ShoppingCartOutlined } from '@ant-design/icons';
 import { useRouter } from "next/navigation";
 
 export default function HeaderNav() {
     const router = useRouter();
     const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
+        console.log(value,info,_e);
         router.push('/sreach')
 
     };

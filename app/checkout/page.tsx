@@ -1,12 +1,12 @@
 'use client'
 
-import { AccountBookOutlined, CompassOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import Image from "next/image";
+import { AccountBookOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+//import Image from "next/image";
 import DetailsCheckout from "./detailsCheckout";
 import { useRouter } from "next/navigation";
-
+import { Item } from "../../interfaces/interface"; 
 export default function Home() {
-    const detail: any = [
+    const detail: Item[]  = [
         {
             name:'Ga ran',
             description:'Chiên bột',

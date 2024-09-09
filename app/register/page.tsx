@@ -6,11 +6,11 @@ import { useRouter } from "next/navigation";
 
 const Page: React.FC = () => {
     const router = useRouter();
-    const handleNavigate = () => {
+    // const handleNavigate = () => {
        
-          router.push('/login');
+    //       router.push('/login');
         
-      };
+    //   };
     return(
         <>
          <div className="mt-28 w-1/3  bg-white border rounded-2xl flex flex-col p-5 gap-5 pb-8">

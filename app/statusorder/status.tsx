@@ -1,9 +1,9 @@
 'use client'
 import { useEffect, useState } from "react";
-
-export default function Status({ items }: { items: any[] }) {
+import { Item_stt } from '../../interfaces/interface';
+export default function Status({ items }: { items:  Item_stt[]  }) {
     const [current, setCurrent] = useState(0);
-    const [status, setStatus] = useState(items);
+    const [status, setStatus] = useState<Item_stt[]>(items);
 
     useEffect(() => {
         setStatus(items);
