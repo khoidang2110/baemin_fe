@@ -172,7 +172,7 @@ export default function Home() {
                     </div>
                     <div className="w-full border-t  flex flex-row justify-between items-center  pt-4  gap-4 mb-4">
                         <div className="w-[70%] ml-8">
-                            Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <span className="text-blue-600 text-sm cursor-pointer">Điều khoản Baemin</span>
+                        Nhấn &apos;Đặt hàng&apos; đồng nghĩa với việc bạn đồng ý tuân theo <span className="text-blue-600 text-sm cursor-pointer">Điều khoản Baemin</span>
                         </div>
                         <div  className="w-[30%] pl-48 ">
                             <button onClick={handleNavigate} className="p-1 bg-beamin text-white w-36 rounded-md h-10 hover:brightness-105">
