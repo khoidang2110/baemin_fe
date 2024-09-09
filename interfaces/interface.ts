@@ -19,7 +19,7 @@ export interface Item {
 
   // search - result
   
-export interface Item {
+export interface Item_result {
   id: string;
   name: string;
   img: string;

@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Item } from '../../interfaces/interface';
-export default function ResultFood({ items }: { items:  Item[] }) {
+import { Item_result } from '../../interfaces/interface';
+export default function ResultFood({ items }: { items:  Item_result[] }) {
     const router = useRouter();
     const handleNavigate = () => {
        

@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Item } from "../../interfaces/interface"; // Ensure this path is correct
 
@@ -6,6 +7,7 @@ interface DetailsCheckoutProps {
 }
 
 export default function DetailsCheckout({ items }: DetailsCheckoutProps) {
+
   return (
     <>
       <div className="mt-3 ml-10 grid grid-cols-12">
@@ -36,7 +38,7 @@ export default function DetailsCheckout({ items }: DetailsCheckoutProps) {
           <div className="col-span-2 ml-5 flex items-center">{item.quantity}</div>
           <div className="col-span-2 ml-5 flex items-center">{item.totalprice}</div>
         </div>
-      )}
+      ))}
     </>
   );
 }
