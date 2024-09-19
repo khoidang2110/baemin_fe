@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ['product.hstatic.net', 't.ly','s.net.vn'],
+  },
     async redirects() {
         return [
           {

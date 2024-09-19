@@ -1,16 +1,33 @@
+'use client'
 // import HeaderNav from "@/components/headerNav";
 // import ScrollBar from "@/components/scrollBar";
 // import ScrollFood from "@/components/scrollFood";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 //import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DetailsCart from "./detailsCart";
 import { Button } from "antd";
 
 import {IDetailsCart} from '../../interfaces/interface'
+import { productService } from "@/service/service";
+import { IItem } from "../../interfaces/interface"; 
 
-
-
+interface Product {
+    product_id:number;
+    img: string;
+    product_name: string;
+    price:number;
+    description: string;
+    store: {
+       store_name:string;
+        store_address: string;
+        img:string;
+    };
+    category: {
+        category_name: string;
+    };
+    quantity?: number;
+}
   const detail: IDetailsCart[] = [
     {
         name: 'Chicken Gang',
@@ -58,7 +75,77 @@ import {IDetailsCart} from '../../interfaces/interface'
     }
 ];
 
+
 export default function Cart() {
+  
+
+//     const [storeName, setStoreName] = useState<string | null>(null);
+//     const [products, setProducts] = useState<Product[]>([]);
+//     const [storeProducts, setStoreProducts] = useState<Product[]>([]);
+
+//     console.log(storeProducts)
+//  const [productId,setProductId] = useState([])
+const [cart,setCart] = useState<IItem[]>([]);
+//console.log(cart)
+ useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        const cart = JSON.parse(storedCart);
+        setCart(cart)
+    }
+}, [])
+  
+const totalPrice = cart.reduce((sum, product) => {
+    return sum + product.price * product.quantity;
+  }, 0);
+  
+  const totalQuantity = cart.reduce((sum, product) => {
+    return sum + product.quantity;
+  }, 0);
+  
+  console.log(`Total Quantity: ${totalQuantity}`);
+  console.log(`Total Price: ₫${totalPrice}`);
+
+  const detail: IDetailsCart[] = cart.map(item => ({
+    name: item.store.store_name,
+    quandoitac: true,
+    items: [{
+        namefood: item.product_name,
+        img: item.img,
+        description: item.description,
+        price: item.price,
+        quantity: item.quantity || 0,
+        totalprice: (item.price * (item.quantity || 0))
+    }]
+}));
+
+    // useEffect(() => {
+    //     productService
+    //       .getAllProduct()
+    //       .then((res) => {
+    //           const allProducts = res.data;
+    //           setProducts(allProducts);
+              
+    //           // Find the product by ID
+    //           const product = allProducts.find(p => p.product_id === productId);
+    //           if (product) {
+    //               setStoreName(product.store.store_name);
+    
+    //               // Filter products by the same store
+    //               const filteredProducts = allProducts.filter(p => p.store.store_name === product.store.store_name);
+    //               setStoreProducts(filteredProducts);
+    //           } else {
+    //               setStoreName(null);
+    //               setStoreProducts([]);
+    //           }
+    
+    //       })
+    //       .catch((err) => {
+    //         console.error("Failed to fetch products", err);
+    //       });
+    //   }, [productId]);
+
+
     return (
         <>
             <div className="flex flex-row w-full h-20 bg-white ">
@@ -93,13 +180,13 @@ export default function Cart() {
                 <DetailsCart Details={detail} />
                 <div className="flex flex-row fixed bottom-0 w-[90.6%] mr-16 h-16 bg-white items-center">
                     <div className="flex flex-row gap-2 w-1/2 h-full items-center ml-10">
-                        <div className="cursor-pointer hover:text-red-600">Hủy</div>
+                        {/* <div className="cursor-pointer hover:text-red-600">Hủy</div> */}
                         <div> Quán Đã chọn: </div>
-                        <div> The Chicken Gang</div>
+                        <div>{cart[0]?.store?.store_name}</div>
                     </div>
                     <div className="flex flex-row gap-2 w-1/2 h-full items-center justify-end pr-2">
-                        <div className=""> Tổng thanh toán (0 Sản phẩm):</div>
-                        <div className="text-red-600">₫0</div>
+                        <div className=""> Tổng thanh toán ({totalQuantity} Sản phẩm):</div>
+                        <div className="text-red-600">₫ {totalPrice}</div>
                         <div>
                             <Button href="/checkout" style={{ background: '#3AC5C9', color: 'white' }} className="bg-beamin text-white w-40 h-10 rounded-md hover:brightness-105">Thanh toán</Button>
                         </div>

@@ -1,10 +1,21 @@
 'use client';
 import Image from 'next/image';
 import {IDetailsCart} from '../../interfaces/interface'
+import { useEffect, useState } from 'react';
 // Use the defined types
 
 
 export default function DetailsCart({ Details }: { Details: IDetailsCart[] }) {
+    const [cart,setCart] = useState([])
+//console.log(cart)
+ useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        const cart = JSON.parse(storedCart);
+        setCart(cart)
+    }
+}, [])
+
     return (
         <>
             {Details.map((items, index) => (

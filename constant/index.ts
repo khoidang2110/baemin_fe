@@ -1,0 +1,1 @@
+export const NO_IMAGE =  "/no_img.jpg";

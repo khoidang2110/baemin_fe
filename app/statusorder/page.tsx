@@ -1,51 +1,41 @@
 'use client'
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Status from './status';
 import DetailsCheckout from '../checkout/detailsCheckout';
-import {IStatusItem,IDetailItem} from '../../interfaces/interface'
+import {IStatusItem,IDetailItem,IProduct,IUserInfo } from '../../interfaces/interface'
+import { authService, productService } from '@/service/service';
 const Page: React.FC = () => {
-    const status: IStatusItem[] = [
-        {
-            id: '1',
-            number: 1,
-            name: 'Nhà hàng đã nhận đơn',
-            st: false          
-        },
-        {
-            id: '2',
-            number: 2,
-            name: 'Shipper đã nhận đơn',
-            st: false
-        },
-        {
-            id: '3',
-            number: 3,
-            name: 'Shipper đang đến nhà hàng',
-            st: false
-        },
-        {
-            id: '4',
-            number: 4,
-            name: 'Shipper đã đến nhà hàng',
-            st: false
-        },
+  
+    const [cart, setCart] = useState<IProduct[]>([]);
+    const [info, setInfo] = useState<IUserInfo | null>(null);
+    useEffect(() => {
+        try {
+            const storedCart = localStorage.getItem('cart');
+            if (storedCart) {
+                const parsedCart = JSON.parse(storedCart);
+                setCart(parsedCart);
+            }
+        } catch (error) {
+            console.error('Failed to parse cart from localStorage:', error);
+        }
+        const token = localStorage.getItem('baemin_user');
+        if (token) {
+            authService
+                .getUserInfo(token)
+                .then((res) => {
+                    setInfo(res.data.data);
+                })
+                .catch((err) => {
+                    console.error('Failed to get user info:', err);
+                });
+        }
        
-        {
-            id: '5',
-            number: 5,
-            name: 'Shipper đang giao hàng',
-            st: false
-        },
-        {
-            id: '6',
-            number: 6,
-            name: 'Đơn hàng hoàn tất',
-            st: false
-        },
-    ]
-    const detail: IDetailItem[]  = [
+    }, []);
+
+
+    const detail: IProduct[]  = [
         {
             name:'Ga ran',
             description:'Chiên bột',
@@ -63,6 +53,8 @@ const Page: React.FC = () => {
             img:'/food/ga1.jpg'
         }
     ]
+
+   
     return (
         <>
             <div className="flex flex-row w-full h-20 bg-white ">
@@ -86,7 +78,8 @@ const Page: React.FC = () => {
                 <div className='col-span-3  pt-3 pb-3 pl-16'>
                     <div className='w-full h-full bg-white rounded-md flex flex-col pl-4 pt-2 pb-4'>
                         <div className='font-semibold'> Trình Trạng </div>
-                        <Status items={status} />
+                        {/* <Status items={status} /> */}
+                        <Status/>
                     </div>
                 </div>
                 <div className='col-span-9 pt-3 pl-6 pr-10 flex flex-col gap-2 pb-3 h-full'>
@@ -100,13 +93,13 @@ const Page: React.FC = () => {
                         <div className='w-full flex flex-row'>
                             <div className='w-1/3 flex flex-col gap-2'>
                                 <div>
-                                    Đồ ăn | Gà rán Popeys - Nguyễn Thị Thập
+                                    Đồ ăn | {cart[0]?.store?.store_name}
                                 </div>
                                 <div className='text-gray-600 text-sm'>
                                     143.000đ - 1 món - Ví MoMo
                                 </div>
                                 <div className='text-gray-600 text-sm'>
-                                    Thiện Trần - 0901234567
+                                    {info?.user_name} - {info?.phone_number}
                                 </div>
                             </div>
                             <div className='w-1/3 flex flex-col gap-2'>
@@ -143,7 +136,7 @@ const Page: React.FC = () => {
                             </div>
                         </div>
                         <div className='w-full mt-2 border-t'>
-                            <DetailsCheckout items={detail}  />
+                            <DetailsCheckout items={cart}  />
                         </div>
                     </div>
                 </div>

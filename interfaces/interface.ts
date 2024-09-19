@@ -7,7 +7,7 @@ export interface IItem {
   description: string;
   price: number;
   quantity: number;
-  totalprice: number;
+  totalprice?: number;
 }
   
 // cart - page
@@ -38,12 +38,21 @@ export interface IItemResult {
 }
 
 // statusOrder - status
+// export interface IStatusItem {
+//   id: string;
+//   number: number;
+//   name: string;
+//   st: boolean;
+// }
+
 export interface IStatusItem {
-  id: string;
-  number: number;
-  name: string;
-  st: boolean;
+  tracking_id: number;
+  tracking_status: string;
+  active: boolean;
 }
+ 
+
+
 // statusOrder - page
 export interface IDetailItem {
   name: string;
@@ -57,4 +66,50 @@ export interface IDetailItem {
 // componnents - scrollBar
 export interface IItemScrollBar{
   url: string;
+}
+// checkout 
+
+export interface IOrderItem {
+  product_id: number;
+  quantity: number;
+}
+
+ export interface IOrder {
+  date: string;
+  store_id: number;
+  user_id: number;
+  payment: string;
+  address: string;
+  note: string;
+  fee: number;
+  discount: number;
+  tracking_id: number;
+  orderCart: IOrderItem[];
+}
+// detail food
+
+export interface IProduct {
+  product_id:number;
+  img: string;
+  product_name: string;
+  price:number;
+  description: string;
+  store: {
+    store_id:number;
+     store_name:string;
+      store_address: string;
+      img:string;
+  };
+  category: {
+      category_name: string;
+  };
+  quantity?: number;
+}
+
+
+export interface IUserInfo {
+  user_id: number;
+  email: string;
+  phone_number: string;
+  user_name: string;
 }
