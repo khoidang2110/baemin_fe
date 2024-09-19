@@ -51,7 +51,7 @@ export default function DetailsCart({ Details }: { Details: IProduct[] }) {
                                     <input type="number" id="quantity" className="w-16 text-center border border-gray-300 rounded" defaultValue={item.quantity} min="1" max="100" />
                                 </div>
                                 <div className="col-span-2 flex items-center justify-center flex-row gap-3">
-                                    ₫{ item.price * item?.quantity }
+                                    ₫{ item.price * (item.quantity ?? 1) }
                                 </div>
                                 <div className="col-span-2 flex items-center justify-center flex-row gap-3">
                                     <span className="hover:text-red-600 cursor-pointer">Xóa</span>

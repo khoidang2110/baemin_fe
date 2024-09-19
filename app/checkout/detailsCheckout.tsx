@@ -33,7 +33,7 @@ export default function DetailsCheckout({ items }: DetailsCheckoutProps) {
           </div>
           <div className="col-span-2 ml-1 flex items-center">₫{item.price}</div>
           <div className="col-span-2 ml-5 flex items-center">{item.quantity}</div>
-          <div className="col-span-2 ml-5 flex items-center">₫{item.price * item.quantity}</div> 
+          <div className="col-span-2 ml-5 flex items-center">₫{item.price * (item.quantity ?? 1)}</div> 
         </div>
       ))}
     </>
