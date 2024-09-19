@@ -92,7 +92,7 @@ export default function CheckOut() {
             
            // console.log('response',response.data.data)
             localStorage.setItem('order_id',response.data.data);
-           router.push('/statusOrder');
+           router.push('/statusorder');
         } catch (error) {
             console.error('Error submitting order:', error);
         }
