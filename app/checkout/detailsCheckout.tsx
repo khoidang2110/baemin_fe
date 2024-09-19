@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {  IProduct } from "../../interfaces/interface";
+import { NO_IMAGE } from "@/constant";
 
 interface DetailsCheckoutProps {
   items: IProduct[];
@@ -22,7 +23,7 @@ export default function DetailsCheckout({ items }: DetailsCheckoutProps) {
               <Image
                 layout="fill"
                 objectFit="cover"
-                src={item.img}
+                src={NO_IMAGE}
                 alt={item.product_name}
               />
             </div>

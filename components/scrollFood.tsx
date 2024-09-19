@@ -74,11 +74,10 @@ export default function ScrollFood({ title, items }: ScrollFoodProps) {
                                     <Image 
                                         layout="fill" 
                                         objectFit="cover" 
-                                        src={item.store.img || NO_IMAGE}
+                                        src={ NO_IMAGE}
                                         alt={item.product_name} 
                                         
-                                        width={300} // Set appropriate width
-                                        height={300}
+                                       
                                         className="group-hover:brightness-75" 
                                     />
                                 </div>

@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { IProduct} from '../../interfaces/interface'
+import { NO_IMAGE } from '@/constant';
 //import { useEffect, useState } from 'react';
 // Use the defined types
 
@@ -36,7 +37,7 @@ export default function DetailsCart({ Details }: { Details: IProduct[] }) {
                                     <input id="default-checkbox" type="checkbox" value="" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded dark:ring-offset-gray-800" />
                                     {item.img && (
                                         <div className="relative h-36 w-36">
-                                            <Image layout="fill" objectFit="cover" src={item.img} alt={item.product_name} />
+                                            <Image layout="fill" objectFit="cover" src={NO_IMAGE} alt={item.product_name} />
                                         </div>
                                     )}
                                     <div className="flex flex-col gap-3">
