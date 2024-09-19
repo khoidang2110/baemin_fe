@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import DetailsCart from "./detailsCart";
 import { Button } from "antd";
 
-import {IDetailsCart} from '../../interfaces/interface'
+import {IDetailsCart, IProduct} from '../../interfaces/interface'
 //import { productService } from "@/service/service";
 import { IItem } from "../../interfaces/interface"; 
 
@@ -85,7 +85,7 @@ export default function Cart() {
 
 //     console.log(storeProducts)
 //  const [productId,setProductId] = useState([])
-const [cart,setCart] = useState<IItem[]>([]);
+const [cart,setCart] = useState<IProduct[]>([]);
 //console.log(cart)
  useEffect(() => {
     const storedCart = localStorage.getItem('cart');
@@ -96,17 +96,17 @@ const [cart,setCart] = useState<IItem[]>([]);
 }, [])
   
 const totalPrice = cart.reduce((sum, product) => {
-    return sum + product.price * product.quantity;
+    return sum + product.price * (product.quantity ?? 0);
   }, 0);
   
   const totalQuantity = cart.reduce((sum, product) => {
-    return sum + product.quantity;
+    return sum + (product.quantity ?? 0);
   }, 0);
   
   console.log(`Total Quantity: ${totalQuantity}`);
   console.log(`Total Price: ₫${totalPrice}`);
 
-  const detail: IDetailsCart[] = cart.map(item => ({
+  const detail: IProduct[] = cart.map(item => ({
     name: item.store.store_name,
     quandoitac: true,
     items: [{
