@@ -76,6 +76,9 @@ export default function ScrollFood({ title, items }: ScrollFoodProps) {
                                         objectFit="cover" 
                                         src={item.store.img || NO_IMAGE}
                                         alt={item.product_name} 
+                                        
+                                        width={300} // Set appropriate width
+                                        height={300}
                                         className="group-hover:brightness-75" 
                                     />
                                 </div>
