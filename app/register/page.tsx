@@ -1,47 +1,39 @@
-'use client'
+'use client';
 import { authService } from "@/service/service";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { Input, Form, message } from "antd";
 import Link from "next/link";
-import React, {  useState } from "react";
+import React, { useState } from "react";
+
+interface FormValues {
+    user_name: string;
+    phone_number: string;
+    email: string;
+    password: string;
+    confirmPassword?: string;
+}
 
 const Page: React.FC = () => {
     const [form] = Form.useForm();
-const [info,setInfo]=useState()
-    const handleSubmit = (values: any) => {
+    const [info, setInfo] = useState<FormValues | null>(null);
+
+    const handleSubmit = (values: FormValues) => {
         // Exclude confirmPassword from the values object before sending to server
         const { confirmPassword, ...formData } = values;
         console.log('Form Submitted:', formData);
-        // Handle form submission logic here
-        setInfo(formData)
+        setInfo(formData);
+        
         authService
-        .signUp(info)
-        .then((res) => {
-          console.log('Sign up successful:', res.data);
-          // Handle successful sign-up
-          message.success('Đăng ký thành công');
-        })
-        .catch((err) => {
-          console.error('Sign up failed:', err);
-          message.error(`lỗi:${err.response.data.message}`);
-        });
-
+            .signUp(formData)
+            .then((res) => {
+                console.log('Sign up successful:', res.data);
+                message.success('Đăng ký thành công');
+            })
+            .catch((err) => {
+                console.error('Sign up failed:', err);
+                message.error(`lỗi: ${err.response?.data?.message || 'Unknown error'}`);
+            });
     };
-
-// useEffect(()=>{
-//   authService
-//   .signUp(info)
-//   .then((res) => {
-//     console.log('Sign up successful:', res.data);
-//     // Handle successful sign-up
-//   })
-//   .catch((err) => {
-//     console.error('Sign up failed:', err);
-//     // Handle sign-up failure
-//   });
-// },[info])
-
-
 
     return (
         <div className="mt-28 w-1/3 bg-white border rounded-2xl flex flex-col p-5 gap-5 pb-8">

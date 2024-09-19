@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import {IDetailsCart} from '../../interfaces/interface'
-import { useEffect, useState } from 'react';
+//import { useEffect, useState } from 'react';
 // Use the defined types
 
 
