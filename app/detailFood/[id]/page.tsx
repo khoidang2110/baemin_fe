@@ -49,31 +49,32 @@ console.log('store product',storeProducts)
         localStorage.setItem('cart', JSON.stringify(cart));
     };
 
-  useEffect(() => {
-    productService
-        .getAllProduct()
-        .then((res) => {
-            const allProducts = res.data;
-            setStoreProducts(allProducts);
-
-            // Find the product by ID
-            const product = allProducts.find(p => p.product_id === productId);
-            if (product) {
-                //setStoreName(product.store.store_name);
-
-                // Filter products by the same store
-                const filteredProducts = allProducts.filter(p => p.store.store_name === product.store.store_name);
-                setStoreProducts(filteredProducts);
-            } else {
-               // setStoreName(null);
-                setStoreProducts([]);
-            }
-
-        })
-        .catch((err) => {
-            console.error("Failed to fetch products", err);
-        });
-}, [productId]); // Add productId to the dependency array
+    useEffect(() => {
+        productService
+            .getAllProduct()
+            .then((res) => {
+                const allProducts: IProduct[] = res.data; // Make sure `res.data` is typed correctly
+                setStoreProducts(allProducts);
+    
+                // Find the product by ID
+                const product = allProducts.find((p: IProduct) => p.product_id === productId);
+                if (product) {
+                    //setStoreName(product.store.store_name);
+    
+                    // Filter products by the same store
+                    const filteredProducts = allProducts.filter((p: IProduct) => p.store.store_name === product.store.store_name);
+                    setStoreProducts(filteredProducts);
+                } else {
+                    // setStoreName(null);
+                    setStoreProducts([]);
+                }
+    
+            })
+            .catch((err) => {
+                console.error("Failed to fetch products", err);
+            });
+    }, [productId]);
+    
 
 
     return (<>
