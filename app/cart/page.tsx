@@ -106,18 +106,9 @@ const totalPrice = cart.reduce((sum, product) => {
   console.log(`Total Quantity: ${totalQuantity}`);
   console.log(`Total Price: ₫${totalPrice}`);
 
-  const detail: IProduct[] = cart.map(item => ({
-    name: item.store.store_name,
-    quandoitac: true,
-    items: [{
-        namefood: item.product_name,
-        img: item.img,
-        description: item.description,
-        price: item.price,
-        quantity: item.quantity || 0,
-        totalprice: (item.price * (item.quantity || 0))
-    }]
-}));
+
+
+
 
     // useEffect(() => {
     //     productService
@@ -177,7 +168,7 @@ const totalPrice = cart.reduce((sum, product) => {
                         <span className="text-base font-normal text-gray-600">Thao tác</span>
                     </div>
                 </div>
-                <DetailsCart Details={detail} />
+                <DetailsCart Details={cart} />
                 <div className="flex flex-row fixed bottom-0 w-[90.6%] mr-16 h-16 bg-white items-center">
                     <div className="flex flex-row gap-2 w-1/2 h-full items-center ml-10">
                         {/* <div className="cursor-pointer hover:text-red-600">Hủy</div> */}
