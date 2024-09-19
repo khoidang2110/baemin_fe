@@ -6,15 +6,15 @@ import { useEffect, useState } from 'react';
 
 
 export default function DetailsCart({ Details }: { Details: IDetailsCart[] }) {
-    const [cart,setCart] = useState([])
-//console.log(cart)
- useEffect(() => {
-    const storedCart = localStorage.getItem('cart');
-    if (storedCart) {
-        const cart = JSON.parse(storedCart);
-        setCart(cart)
-    }
-}, [])
+//     const [cart,setCart] = useState([])
+// //console.log(cart)
+//  useEffect(() => {
+//     const storedCart = localStorage.getItem('cart');
+//     if (storedCart) {
+//         const cart = JSON.parse(storedCart);
+//         setCart(cart)
+//     }
+// }, [])
 
     return (
         <>

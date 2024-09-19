@@ -4,8 +4,8 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import Status from './status';
 import DetailsCheckout from '../checkout/detailsCheckout';
-import {IStatusItem,IDetailItem,IProduct,IUserInfo } from '../../interfaces/interface'
-import { authService, productService } from '@/service/service';
+import {IProduct,IUserInfo } from '../../interfaces/interface'
+import { authService } from '@/service/service';
 const Page: React.FC = () => {
   
     const [cart, setCart] = useState<IProduct[]>([]);
@@ -35,24 +35,7 @@ const Page: React.FC = () => {
     }, []);
 
 
-    const detail: IProduct[]  = [
-        {
-            name:'Ga ran',
-            description:'Chiên bột',
-            price:17000,
-            quantity:2,
-            totalprice:17000,
-            img:'/food/ga1.jpg'
-        },
-        {
-            name:'Ga ran',
-            description:'Chiên bột',
-            price:17000,
-            quantity:2,
-            totalprice:17000,
-            img:'/food/ga1.jpg'
-        }
-    ]
+   
 
    
     return (

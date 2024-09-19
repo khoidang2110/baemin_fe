@@ -6,7 +6,7 @@ import { productService } from "@/service/service";
 // import ScrollFood from "@/components/scrollFood";
 import { ClockCircleTwoTone,  DollarTwoTone, DoubleRightOutlined, LikeFilled, PlusOutlined, SearchOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
 import { Input } from "antd";
-import { setFips } from "crypto";
+//import { setFips } from "crypto";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -14,8 +14,8 @@ import React, { useEffect, useState } from "react";
 export default function DetailFood() {
     const params = useParams();
     const productId = Number(params?.id); 
-    const [storeName, setStoreName] = useState<string | null>(null);
-    const [products, setProducts] = useState<IProduct[]>([]);
+  //  const [storeName, setStoreName] = useState<string | null>(null);
+  //  const [products, setProducts] = useState<IProduct[]>([]);
     const [storeProducts, setStoreProducts] = useState<IProduct[]>([]);
    // const [filteredProduct, setFilteredProduct] = useState<Product | null>(null);
 console.log('store product',storeProducts)
@@ -32,7 +32,7 @@ console.log('store product',storeProducts)
    
     const handleAddToCart = (item: IProduct) => {
         // Retrieve the cart from localStorage
-        let cart: IProduct[] = JSON.parse(localStorage.getItem('cart') || '[]');
+        const cart: IProduct[] = JSON.parse(localStorage.getItem('cart') || '[]');
 
         // Check if the item already exists in the cart
         const existingProduct = cart.find(cartItem => cartItem.product_id === item.product_id);

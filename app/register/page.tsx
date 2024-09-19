@@ -1,9 +1,9 @@
 'use client'
 import { authService } from "@/service/service";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
-import { Input, Button, Form, message } from "antd";
+import { Input, Form, message } from "antd";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 
 const Page: React.FC = () => {
     const [form] = Form.useForm();

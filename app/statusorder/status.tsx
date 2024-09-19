@@ -3,15 +3,13 @@ import { useEffect, useState } from "react";
 import { IStatusItem } from '../../interfaces/interface';
 import { productService } from "@/service/service";
 
-interface StatusProps {
-    items: IStatusItem[];
-}
+
 
 export default function Status() {
 
     const [orderId, setOrderId] = useState<string | undefined>();
     const [status, setStatus] = useState<IStatusItem[]>([]);
-    const [orderDetails, setOrderDetails] = useState<any>(null); // Adjust type according to your API response
+   // const [orderDetails, setOrderDetails] = useState<any>(null); // Adjust type according to your API response
 
     useEffect(() => {
         const fetchOrderDetails = async () => {
@@ -23,7 +21,7 @@ export default function Status() {
                     console.log('response', response);
                     const sortedStatus = response.data.sort((a: IStatusItem, b: IStatusItem) => a.tracking_id - b.tracking_id);
                     setStatus(sortedStatus);
-                    setOrderDetails(response.data); // Assuming response.data contains your order details
+                  //  setOrderDetails(response.data); // Assuming response.data contains your order details
                 }
             } catch (error) {
                 console.error('Failed to fetch order details:', error);

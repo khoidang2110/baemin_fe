@@ -21,8 +21,8 @@ export default function CheckOut() {
     // State for managing cart items and user info
     const [cart, setCart] = useState<IProduct[]>([]);
     const [info, setInfo] = useState<IUserInfo | null>(null);
-    const [address, setAddress] = useState('123 Example Street'); // Replace with default address
-    const [paymentMethod, setPaymentMethod] = useState('Credit Card'); // Replace with default payment method
+   // const [address, setAddress] = useState('123 Example Street'); // Replace with default address
+   // const [paymentMethod, setPaymentMethod] = useState('Credit Card'); // Replace with default payment method
 
     useEffect(() => {
         try {
@@ -52,9 +52,9 @@ export default function CheckOut() {
     const totalPrice = cart.reduce((sum, product) => sum + (product.price * (product.quantity || 0)), 0);
     const totalQuantity = cart.reduce((sum, product) => sum + (product.quantity || 0), 0);
 
-    const handleNavigate = () => {
-        router.push('/statusOrder');
-    };
+    // const handleNavigate = () => {
+    //     router.push('/statusOrder');
+    // };
     const submitOrder = async () => {
         const token = localStorage.getItem('baemin_user');
     
@@ -72,8 +72,8 @@ export default function CheckOut() {
             date: new Date().toISOString().split('T')[0], 
             store_id: cart.length > 0 ? cart[0].store.store_id : 0,
             user_id: info?.user_id || 0,
-            payment: paymentMethod,
-            address: address,
+            payment: "cash",
+            address: 'q3',
             note: 'Leave at the door',
             fee: 5000,
             discount: 1000,

@@ -9,71 +9,71 @@ import DetailsCart from "./detailsCart";
 import { Button } from "antd";
 
 import {IDetailsCart} from '../../interfaces/interface'
-import { productService } from "@/service/service";
+//import { productService } from "@/service/service";
 import { IItem } from "../../interfaces/interface"; 
 
-interface Product {
-    product_id:number;
-    img: string;
-    product_name: string;
-    price:number;
-    description: string;
-    store: {
-       store_name:string;
-        store_address: string;
-        img:string;
-    };
-    category: {
-        category_name: string;
-    };
-    quantity?: number;
-}
-  const detail: IDetailsCart[] = [
-    {
-        name: 'Chicken Gang',
-        quandoitac: true,
-        items:[
-            {
-                namefood: 'Gà rán',
-                img: '/images/Ga.png',
-                description: 'Chiên bột',
-                price: 280000,
-                quantity: 2,
-                totalprice: 560000
-            },
-            {
-                namefood: 'Gà rán',
-                img: '/images/Ga.png',
-                description: 'Chiên bột',
-                price: 280000,
-                quantity: 2,
-                totalprice: 560000
-            }
-        ]
-    },
-    {
-        name: 'Chicken Gang',
-        quandoitac: true,
-        items: [
-            {
-                namefood: 'Gà rán',
-                img: '/images/Ga.png',
-                description: 'Chiên bột',
-                price: 280000,
-                quantity: 2,
-                totalprice: 560000
-            },
-            {
-                namefood: 'Gà rán',
-                img: '/images/Ga.png',
-                description: 'Chiên bột',
-                price: 280000,
-                quantity: 2,
-                totalprice: 560000
-            }
-        ]
-    }
-];
+// interface Product {
+//     product_id:number;
+//     img: string;
+//     product_name: string;
+//     price:number;
+//     description: string;
+//     store: {
+//        store_name:string;
+//         store_address: string;
+//         img:string;
+//     };
+//     category: {
+//         category_name: string;
+//     };
+//     quantity?: number;
+// }
+//   const detail: IDetailsCart[] = [
+//     {
+//         name: 'Chicken Gang',
+//         quandoitac: true,
+//         items:[
+//             {
+//                 namefood: 'Gà rán',
+//                 img: '/images/Ga.png',
+//                 description: 'Chiên bột',
+//                 price: 280000,
+//                 quantity: 2,
+//                 totalprice: 560000
+//             },
+//             {
+//                 namefood: 'Gà rán',
+//                 img: '/images/Ga.png',
+//                 description: 'Chiên bột',
+//                 price: 280000,
+//                 quantity: 2,
+//                 totalprice: 560000
+//             }
+//         ]
+//     },
+//     {
+//         name: 'Chicken Gang',
+//         quandoitac: true,
+//         items: [
+//             {
+//                 namefood: 'Gà rán',
+//                 img: '/images/Ga.png',
+//                 description: 'Chiên bột',
+//                 price: 280000,
+//                 quantity: 2,
+//                 totalprice: 560000
+//             },
+//             {
+//                 namefood: 'Gà rán',
+//                 img: '/images/Ga.png',
+//                 description: 'Chiên bột',
+//                 price: 280000,
+//                 quantity: 2,
+//                 totalprice: 560000
+//             }
+//         ]
+//     }
+// ];
 
 
 export default function Cart() {
