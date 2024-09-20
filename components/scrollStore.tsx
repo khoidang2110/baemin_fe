@@ -23,7 +23,7 @@ interface ScrollFoodProps {
     items: Product[];
 }
 
-export default function ScrollFood({ title, items }: ScrollFoodProps) {
+export default function ScrollStore({ title, items }: ScrollFoodProps) {
     const router = useRouter();
     const [currentIndex, setCurrentIndex] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -83,13 +83,13 @@ export default function ScrollFood({ title, items }: ScrollFoodProps) {
                                 </div>
                                 <div className="group-hover:bg-slate-50 w-full h-1/3 flex flex-col pl-2 pr-2 border-solid border-2 border-beamin-50">
                                     <div className="w-full truncate text-base">
-                                        <span>{item.product_name}</span>
+                                        <span>{item.store.store_name}</span>
                                     </div>
                                     <div className="w-full truncate text-sm text-gray-500">
                                         <span>{item.store.store_address}</span>
                                     </div>
                                     <div className="w-full text-sm border-t border-beamin-50 mt-2">
-                                        <span>{item.store.store_name}</span>
+                                        <span>{item.category.category_name}</span>
                                     </div>
                                 </div>
                             </div>

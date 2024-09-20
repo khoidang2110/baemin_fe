@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { EyeInvisibleOutlined, EyeTwoTone, FacebookOutlined, GoogleOutlined } from "@ant-design/icons";
 import { Input ,message} from "antd";
 import Link from "next/link";
@@ -10,6 +10,16 @@ const Page: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter()
+
+useEffect(()=>{
+    const storedCart = localStorage.getItem('baemin_user');
+
+    if(storedCart){
+        router.push(`/dashboard`);
+        message.success('Bạn đã đăng nhập')
+    }
+},[])
+
     const handleLogin = () => {
         // Perform form validation
         if (!email || !password) {

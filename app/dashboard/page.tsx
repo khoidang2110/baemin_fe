@@ -1,6 +1,7 @@
 'use client';
 import ScrollBar from "@/components/scrollBar";
 import ScrollFood from "@/components/scrollFood";
+import ScrollStore from "@/components/scrollStore";
 import { productService } from "@/service/service";
 import React, { useEffect, useState } from "react";
 
@@ -78,9 +79,13 @@ export default function DashBoard() {
     }, []);
   
     // Data for ScrollFood
-    const TodayFood = {
-      title: 'Hôm Nay ăn gì',
+    const store = {
+      title: 'Các Quán Ngon',
       items: uniqueStoreProducts // Use unique store products
+    };
+    const allFood = {
+      title: 'Hôm Nay ăn gì',
+      items: products // Use unique store products
     };
 
   return (
@@ -100,7 +105,8 @@ export default function DashBoard() {
         </div>
         <div className="col-span-9 w-full pt-3 pr-8 gap-3 flex flex-col">
           <ScrollBar items={banneritems} />
-          <ScrollFood title={TodayFood.title} items={TodayFood.items} />
+          <ScrollStore title={store.title} items={store.items} />
+          <ScrollFood title={allFood.title} items={allFood.items} />
         </div>
       </div>
     </>

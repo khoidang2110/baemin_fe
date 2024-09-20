@@ -1,10 +1,28 @@
+'use client'
 //import { ShoppingCartOutlined } from '@ant-design/icons';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TypeSelector from './type';
 import AreaSelector from './area';
 import FilterSelector from './filter';
 import ResultFood from './result';
+import { usePathname } from 'next/navigation';
+import { productService } from '@/service/service';
 
+
+
+interface IProduct {
+    product_id:number;
+    img: string;
+    product_name: string;
+    store: {
+        store_name:string;
+        store_address: string;
+        img:string;
+    };
+    category: {
+        category_name: string;
+    };
+}
 const Page: React.FC = () => {
     const items=[{
         id:'1',
@@ -98,6 +116,29 @@ const Page: React.FC = () => {
         kind:'Quán Ăn',
     },
 ]
+const [lstProduct, setLstProduct] = useState<IProduct[]>([])
+const pathname = usePathname();
+
+
+ console.log('pathname',pathname?.slice(8))
+// const searchParams = useSearchParams()
+// const nameProduct = searchParams.get("nameProduct")
+
+useEffect(() => {
+
+    if(pathname){
+        productService
+        .findProduct(pathname.slice(8))
+        .then(result => {
+            console.log(result.data)
+            setLstProduct(result.data)
+        })
+    }
+
+
+}, [])
+
+
     return (
         <>
             <div className='w-full flex flex-row justify-between items-center border-b border-solid'>
@@ -111,9 +152,9 @@ const Page: React.FC = () => {
 
             </div>
             <div className='my-3 flex flex-row'>
-                asdasd
+                Các món ăn tìm được: 
             </div>
-            <ResultFood items={items} />
+            <ResultFood items={lstProduct} />
         </>
     )
 }

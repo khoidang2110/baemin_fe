@@ -7,6 +7,9 @@ export let productService = {
       getAllProduct:()=>{
         return axiosClient.get(`/product/get-all`)
       },
+      findProduct:(name:string)=>{
+return axiosClient.get(`/product/search-pagination?page=1&name=${name}`)
+      },
     
       createOrder:(value:any)=>{
         return axiosClient.post(`/product/order`, value)

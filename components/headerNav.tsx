@@ -9,9 +9,9 @@ import { useRouter } from "next/navigation";
 
 export default function HeaderNav() {
     const router = useRouter();
-    const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
-        console.log(value,info,_e);
-        router.push('/sreach')
+    const onSearch: SearchProps['onSearch'] = (value) => {
+       // console.log('log search',value);
+        router.push(`/search/${value}`)
 
     };
     const navigation =()=>{

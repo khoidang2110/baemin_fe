@@ -92,6 +92,19 @@ export default function CheckOut() {
             
            // console.log('response',response.data.data)
             localStorage.setItem('order_id',response.data.data);
+
+// xoá giỏ hàng chuyển sang theo dõi 
+const storedCart = localStorage.getItem('cart');
+
+if (storedCart) {
+ 
+  localStorage.setItem('tracking', storedCart);
+
+ 
+  localStorage.removeItem('cart');
+}
+
+
            router.push('/statusorder');
         } catch (error) {
             console.error('Error submitting order:', error);

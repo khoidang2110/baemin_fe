@@ -6,7 +6,7 @@ import { productService } from "@/service/service";
 // import ScrollBar from "@/components/scrollBar";
 // import ScrollFood from "@/components/scrollFood";
 import { ClockCircleTwoTone,  DollarTwoTone, DoubleRightOutlined, LikeFilled, PlusOutlined, SearchOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
-import { Input } from "antd";
+import { Input ,message} from "antd";
 //import { setFips } from "crypto";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -48,6 +48,7 @@ console.log('store product',storeProducts)
 
         // Save the updated cart to localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
+        message.success('bạn đã thêm món')
     };
 
     useEffect(() => {

@@ -12,7 +12,7 @@ const Page: React.FC = () => {
     const [info, setInfo] = useState<IUserInfo | null>(null);
     useEffect(() => {
         try {
-            const storedCart = localStorage.getItem('cart');
+            const storedCart = localStorage.getItem('tracking');
             if (storedCart) {
                 const parsedCart = JSON.parse(storedCart);
                 setCart(parsedCart);
