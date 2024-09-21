@@ -76,17 +76,17 @@ useEffect(()=>{
                     >
                         Đăng Nhập
                     </button>
-                    <div className="flex flex-row justify-between items-center w-full text-sm text-beamin">
+                    {/* <div className="flex flex-row justify-between items-center w-full text-sm text-beamin">
                         <span className="cursor-pointer">Quên mật khẩu</span>
                         <span className="cursor-pointer">Đăng nhập bằng SMS</span>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="flex items-center justify-center">
                     <div className="flex-grow border-t border-gray-300"></div>
                     <span className="mx-4 text-sm text-gray-600">HOẶC</span>
                     <div className="flex-grow border-t border-gray-300"></div>
                 </div>
-                <div className="flex flex-row items-center justify-center gap-5 h-[40px] ">
+                {/* <div className="flex flex-row items-center justify-center gap-5 h-[40px] ">
                     <button className="flex items-center justify-center gap-3 border w-full h-full p-1 text-beamin text-base">
                         <FacebookOutlined />
                         <span>Facebook</span>
@@ -95,7 +95,7 @@ useEffect(()=>{
                         <GoogleOutlined />
                         <span>Google</span>
                     </button>
-                </div>
+                </div> */}
                 <div className="flex items-center justify-center gap-1">
                     <span className="text-gray-600">Bạn mới biết đến Baemin? </span>
                     <Link className="text-beamin cursor-pointer" href={"/register"}> Đăng kí</Link>

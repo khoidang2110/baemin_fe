@@ -1,6 +1,6 @@
 
 'use client'
-import { Button, Select } from "antd";
+import { Button, Select,message } from "antd";
 import { SearchProps } from "antd/es/input";
 import Search from "antd/es/input/Search";
 //import { useState } from "react";
@@ -10,9 +10,11 @@ import { useRouter } from "next/navigation";
 export default function HeaderNav() {
     const router = useRouter();
     const onSearch: SearchProps['onSearch'] = (value) => {
-       // console.log('log search',value);
-        router.push(`/search/${value}`)
-
+        if (value.trim() === '') {
+            message.warning('bạn chưa nhập')
+            return;
+        }
+        router.push(`/search/${value}`);
     };
     const navigation =()=>{
         router.push('/dashboard')
